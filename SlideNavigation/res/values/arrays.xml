@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 发现页面 -->
+    <string-array name="explore_title_array">
+        <item>页面一</item>
+        <item>页面二</item>
+        <item>页面三</item>
+        <item>页面四</item>
+        <item>页面一</item>
+        <item>页面二</item>
+        <item>页面三</item>
+        <item>页面四</item>
+    </string-array>
+
+</resources>
