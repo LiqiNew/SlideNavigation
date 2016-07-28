@@ -19,7 +19,7 @@ import android.widget.TextView;
 /**
  * ViewPager页面切换赋值适配器
  * 
- * @author cy-hb
+ * @author Liqi
  * 
  */
 public class ViewPageFragmentAdapter extends FragmentPagerAdapter implements
