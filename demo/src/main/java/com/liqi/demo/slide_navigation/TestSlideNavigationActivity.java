@@ -62,6 +62,7 @@ public class TestSlideNavigationActivity extends AppCompatActivity {
                 //批量添加
                 //.addFragment(titleNames, clazzList)
                 .setViewpagerCacheLimit(clazzList.size())
+                .setSlidingTag(false)
                 .setTextTitleSize(16)
                 .setTextTitleSizeCoarsening(true)
                 .setSlidingTabStripImage(

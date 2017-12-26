@@ -36,7 +36,7 @@ public class ExploreViewPagerFragment extends BaseViewPagerFragment {
      * 设置当前那个页面显示
      *
      * @param index 页面索引值
-     * @return
+     * @return ExploreViewPagerFragment
      */
     public ExploreViewPagerFragment setViewpagerIndxe(int index) {
         this.mIndex = index;
@@ -46,8 +46,8 @@ public class ExploreViewPagerFragment extends BaseViewPagerFragment {
     /**
      * 设置viewpager一次性加载几个对象
      *
-     * @param cacheLimit
-     * @return
+     * @param cacheLimit 一次性加载数量
+     * @return ExploreViewPagerFragment
      */
     public ExploreViewPagerFragment setViewpagerCacheLimit(int cacheLimit) {
         this.mCacheLimit = cacheLimit;
@@ -59,7 +59,7 @@ public class ExploreViewPagerFragment extends BaseViewPagerFragment {
      *
      * @param backgroundId 默认图片
      * @param slidingBlock 滑动图片
-     * @return
+     * @return ExploreViewPagerFragment
      */
     public ExploreViewPagerFragment setSlidingTabStripImage(int backgroundId,
                                                             int slidingBlock) {
@@ -71,8 +71,8 @@ public class ExploreViewPagerFragment extends BaseViewPagerFragment {
     /**
      * 设置滑块字体颜色选择器
      *
-     * @param colorSelect
-     * @return
+     * @param colorSelect 滑块字体颜色选择器
+     * @return ExploreViewPagerFragment
      */
     public ExploreViewPagerFragment setTextColorSelect(int colorSelect) {
         this.mTextColroSelect = colorSelect;
@@ -80,10 +80,10 @@ public class ExploreViewPagerFragment extends BaseViewPagerFragment {
     }
 
     /**
-     * 设置标题底部是否需要跟着手势滑动效果
+     * 设置标题滑块是否需要跟着手势滑动效果
      *
-     * @param slidingTag
-     * @return
+     * @param slidingTag true是滑动，false为不滑动。默认为true
+     * @return ExploreViewPagerFragment
      */
     public ExploreViewPagerFragment setSlidingTag(boolean slidingTag) {
         this.mSlidingTag = slidingTag;
@@ -93,8 +93,8 @@ public class ExploreViewPagerFragment extends BaseViewPagerFragment {
     /**
      * 设置是否title字体选中后是否需要变大效果
      *
-     * @param textSizeTag
-     * @return
+     * @param textSizeTag true是变大false为不变大。默认为false
+     * @return ExploreViewPagerFragment
      */
     public ExploreViewPagerFragment setTextTitleSizeTag(boolean textSizeTag) {
         this.mTextSizeTag = textSizeTag;
@@ -104,7 +104,9 @@ public class ExploreViewPagerFragment extends BaseViewPagerFragment {
     /**
      * 设置选中的title字体是否变粗
      *
-     * @param textTitleSizeCoarsening
+     * @param textTitleSizeCoarsening true是变粗false为不变粗。默认为false
+     *
+     * @return ExploreViewPagerFragment
      */
     public ExploreViewPagerFragment setTextTitleSizeCoarsening(boolean textTitleSizeCoarsening) {
         isTextTitleSizeCoarsening = textTitleSizeCoarsening;
@@ -131,7 +133,9 @@ public class ExploreViewPagerFragment extends BaseViewPagerFragment {
     /**
      * 设置标题字体尺寸
      *
-     * @param textSize
+     * @param textSize 字体尺寸
+     *
+     * @return ExploreViewPagerFragment
      */
     public ExploreViewPagerFragment setTextTitleSize(int textSize) {
         this.mTextSize = textSize;
@@ -141,7 +145,9 @@ public class ExploreViewPagerFragment extends BaseViewPagerFragment {
     /**
      * 设置标题放大字体尺寸
      *
-     * @param textZoomInSize
+     * @param textZoomInSize 标题放大字体尺寸
+     *
+     * @return ExploreViewPagerFragment
      */
     public ExploreViewPagerFragment setTextTitleZoomInSize(int textZoomInSize) {
         this.mTextZoomInSize = textZoomInSize;
@@ -152,7 +158,7 @@ public class ExploreViewPagerFragment extends BaseViewPagerFragment {
      * 单个添加要显示的fragment界面和fragment标题名字
      * @param titleName fragment标题名字
      * @param fragmentClass 要显示的fragment界面class
-     * @return
+     * @return ExploreViewPagerFragment
      */
     public ExploreViewPagerFragment addFragment(String titleName,Class<? extends BaseFragment> fragmentClass){
         ThisViewpagerFragmentObj fragmentObj = new ThisViewpagerFragmentObj();
@@ -166,7 +172,7 @@ public class ExploreViewPagerFragment extends BaseViewPagerFragment {
      * 批量添加要显示的fragment界面和fragment标题名字
      * @param titleName fragment标题名字数组
      * @param fragmentClassList 要显示的fragment界面class集合
-     * @return
+     * @return ExploreViewPagerFragment
      */
     public ExploreViewPagerFragment addFragment(String[] titleName, List<Class<? extends BaseFragment>> fragmentClassList){
         if (null != fragmentClassList && !fragmentClassList.isEmpty()) {
