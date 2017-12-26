@@ -1,1 +1,1 @@
-include ':demo', ':slidenavigation'
+include ':demo', ':slide_navigation'
