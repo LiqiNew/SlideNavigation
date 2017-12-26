@@ -1,4 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+//关联配置gradle
+apply from: "config.gradle"
 buildscript {
     repositories {
         jcenter()

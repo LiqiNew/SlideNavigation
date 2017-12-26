@@ -1,18 +1,18 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 android {
-    compileSdkVersion 25
-    buildToolsVersion '25.0.1'
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 22
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
     }
 }
 
 dependencies {
     //log依赖
-    compile 'com.github.liqinew:baselogger:V.1.0.0'
+    compile rootProject.ext.dependencies.log
     //baseFragment依赖
-    compile 'com.github.liqinew:basefragment:V.1.0.0'
+    compile rootProject.ext.dependencies.basefragment
 }
