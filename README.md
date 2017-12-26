@@ -24,7 +24,7 @@ allprojects {
 ```gradle
 compile 'com.github.liqinew:slidenavigation:V.1.0'
 ```
-#### 操作参考方案（当前类继承AppCompatActivity）####
+#### 操作参考方案（当前类继承AppCompatActivity）
 ```java
 /**
 * 把XML定义的FrameLayout替换成“导航栏跟手势滑动效果Fragment”
@@ -34,7 +34,7 @@ getSupportFragmentManager()
 .replace(R.id.fragment, ExploreViewPagerFragment.newInstance())
 .commit();
 ```
-#### ExploreViewPagerFragment操作API ####
+#### ExploreViewPagerFragment操作API 
 ```java
 /**
 * 设置当前那个页面显示
