@@ -3,11 +3,28 @@
 # SlideNavigation
 类似‘今日头条顶部导航栏跟手势滑动’效果
 
-# 效果预览
+### 效果预览
 <image src="./image/demo.gif" width="400px" height="700px"/>
 
-#### 如何使用（效果封装进Fragment）
-***参考方案（继承AppCompatActivity）***
+### 如何使用（效果封装进Fragment）
+#### Gradle远程依赖 ####
+**1：在项目根目录build.gradley**	<br>
+
+```gradle
+allprojects {
+　　repositories {
+  　　//依赖仓库
+　　　maven { url 'https://jitpack.io' }
+　　}
+}
+```
+
+**2：依赖SlideNavigation**<br>
+
+```gradle
+compile 'com.github.liqinew:slidenavigation:V.1.0'
+```
+#### 操作参考方案（当前类继承AppCompatActivity）####
 ```java
 /**
 * 把XML定义的FrameLayout替换成“导航栏跟手势滑动效果Fragment”
