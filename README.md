@@ -121,6 +121,9 @@ ExploreViewPagerFragment.setTextTitleZoomInSize(int textZoomInSize);
 
 /**
 * 单个添加要显示的fragment界面和fragment标题名字
+*<p>
+*提示"setFragmentObjList()赋值",请调用此方法赋值。
+*</p>
 * @param titleName fragment标题名字
 * @param fragmentClass 要显示的fragment界面class
 * @return ExploreViewPagerFragment
@@ -129,6 +132,9 @@ ExploreViewPagerFragment.addFragment(String titleName,Class<? extends BaseFragme
 
 /**
 * 批量添加要显示的fragment界面和fragment标题名字
+*<p>
+*提示"setFragmentObjList()赋值",请调用此方法赋值。
+*</p>
 * @param titleName fragment标题名字数组
 * @param fragmentClassList 要显示的fragment界面class集合
 * @return ExploreViewPagerFragment
