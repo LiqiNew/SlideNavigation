@@ -6,7 +6,14 @@
 ### 效果预览
 <image src="./image/demo.gif" width="400px" height="700px"/>
 
+### 内部远程依赖Library（已经远程依赖的Library，切勿重复依赖。）
+
+**BaseLogger：'com.github.liqinew:baselogger:V.1.0.0'**<br>
+
+**BaseFragment：'com.github.liqinew:basefragment:V.1.0.0'**<br>
+
 ### 如何使用（效果封装进Fragment）
+
 #### Gradle远程依赖 ####
 **1：在项目根目录build.gradley**	<br>
 
