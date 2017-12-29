@@ -41,7 +41,7 @@ getSupportFragmentManager()
 .replace(R.id.fragment, ExploreViewPagerFragment.newInstance())
 .commit();
 ```
-#### ExploreViewPagerFragment操作API 
+#### ExploreViewPagerFragment 操作A P I 
 ```java
 /**
 * 设置当前那个页面显示
