@@ -41,10 +41,10 @@ getSupportFragmentManager()
 .replace(R.id.fragment, ExploreViewPagerFragment.newInstance())
 .commit();
 ```
-#### ExploreViewPagerFragment 操作A P I
-* **通脱ExploreViewPagerFragment.newInstance()静态方法获取ExploreViewPagerFragment对象**
+#### ExploreViewPagerFragment 静态操作A P I
+* **通过ExploreViewPagerFragment.newInstance()静态方法获取ExploreViewPagerFragment对象**
 
-##### ExploreViewPagerFragment 非静态操作A P I
+#### ExploreViewPagerFragment 非静态操作A P I
 ```java
 /**
 * 设置当前那个页面显示
