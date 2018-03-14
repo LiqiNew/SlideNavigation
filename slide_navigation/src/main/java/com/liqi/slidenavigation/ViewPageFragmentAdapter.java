@@ -8,7 +8,6 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.widget.TextView;
 
-
 import com.liqi.fragment.BaseFragment;
 
 import java.util.ArrayList;
@@ -18,20 +17,29 @@ import java.util.ArrayList;
  *
  * @author LiQi
  */
-public class ViewPageFragmentAdapter extends FragmentPagerAdapter implements
+class ViewPageFragmentAdapter extends FragmentPagerAdapter implements
         ViewPager.OnPageChangeListener {
 
-    private final ArrayList<ViewPageInfo> MTABS = new ArrayList<ViewPageInfo>();
+    private final ArrayList<ViewPageInfo> MTABS = new ArrayList<>();
     // 设置title颜色选择器ID
-    public int mTextColroSelect;
-    public int mTextSize;
-    protected PagerSlidingTabStrip mPagerStrip;
+    int mTextColroSelect,
+    //字体大小
+    mTextSize,
+    //左边内边距
+    mPaddingLeft,
+    //顶部内边距
+    mPaddingTop,
+    //右边内边距
+    mPaddingRight,
+    //底部内边距
+    mPaddingBottom;
+    private PagerSlidingTabStrip mPagerStrip;
     private Context mContext;
     private ViewPager mViewPager;
     private OnViewPageAdapterPageSelectedListener mPageSelectedListener;
 
-    public ViewPageFragmentAdapter(FragmentManager fm,
-                                   PagerSlidingTabStrip pageStrip, ViewPager pager) {
+    ViewPageFragmentAdapter(FragmentManager fm,
+                            PagerSlidingTabStrip pageStrip, ViewPager pager) {
         super(fm);
         mContext = pager.getContext();
         mPagerStrip = pageStrip;
@@ -41,7 +49,7 @@ public class ViewPageFragmentAdapter extends FragmentPagerAdapter implements
         mPagerStrip.setOnPageChangeListener(this);
     }
 
-    public void addTab(String title, @NonNull BaseFragment baseFragment) {
+    void addTab(String title, @NonNull BaseFragment baseFragment) {
         ViewPageInfo info = new ViewPageInfo(title, baseFragment);
         MTABS.add(info);
     }
@@ -55,12 +63,19 @@ public class ViewPageFragmentAdapter extends FragmentPagerAdapter implements
             v.setText(viewPageInfo.mTitle);
             v.setTextSize(mTextSize);
             v.setTextColor(mContext.getResources().getColorStateList(mTextColroSelect));
+            if (mPaddingLeft != -1 ||
+                    mPaddingTop != -1 ||
+                    mPaddingRight != -1 ||
+                    mPaddingBottom != -1) {
+                v.setPadding(mPaddingLeft >= 0 ? mPaddingLeft : 0, mPaddingTop >= 0 ? mPaddingTop : 0,
+                        mPaddingRight >= 0 ? mPaddingRight : 0, mPaddingBottom >= 0 ? mPaddingBottom : 0);
+            }
             // 需要在此处动态添加标题图片
             mPagerStrip.addTab(v);
         }
     }
 
-    public void clear() {
+    void clear() {
         if (!MTABS.isEmpty()) {
             MTABS.clear();
         }
@@ -107,18 +122,18 @@ public class ViewPageFragmentAdapter extends FragmentPagerAdapter implements
         //Log.e("ViewPaer切换", "ViewPaer切换003"+position);
     }
 
-    public ViewPageInfo getInitListIndexData() {
+    ViewPageInfo getInitListIndexData() {
         if (!MTABS.isEmpty()) {
             return MTABS.get(0);
         }
         return null;
     }
 
-    public void setPageSelectedListener(OnViewPageAdapterPageSelectedListener pageSelectedListener) {
+    void setPageSelectedListener(OnViewPageAdapterPageSelectedListener pageSelectedListener) {
         mPageSelectedListener = pageSelectedListener;
     }
 
-    public interface OnViewPageAdapterPageSelectedListener {
+    interface OnViewPageAdapterPageSelectedListener {
         void onPageSelected(ViewPageInfo viewPageInfo);
     }
 }

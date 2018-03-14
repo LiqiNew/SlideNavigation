@@ -29,7 +29,7 @@ allprojects {
 **2：依赖SlideNavigation**<br>
 
 ```gradle
-compile 'com.github.liqinew:slidenavigation:V.1.0'
+compile 'com.github.liqinew:slidenavigation:V.1.0.1'
 ```
 #### 操作参考方案（当前类继承AppCompatActivity）
 ```java
@@ -41,7 +41,10 @@ getSupportFragmentManager()
 .replace(R.id.fragment, ExploreViewPagerFragment.newInstance())
 .commit();
 ```
-#### ExploreViewPagerFragment 操作A P I 
+#### ExploreViewPagerFragment 操作A P I
+* **通脱ExploreViewPagerFragment.newInstance()静态方法获取ExploreViewPagerFragment对象**
+
+##### ExploreViewPagerFragment 非静态操作A P I
 ```java
 /**
 * 设置当前那个页面显示
@@ -142,9 +145,31 @@ ExploreViewPagerFragment.addFragment(String titleName,Class<? extends BaseFragme
 ExploreViewPagerFragment.addFragment(String[] titleName, List<Class<? extends BaseFragment>> fragmentClassList);
 
 /**
+* 设置滑动控件显示控件方位枚举。默认顶部
+*
+* @param showOrientationEnum 滑动控件显示控件方位枚举
+* @return ExploreViewPagerFragment
+*/
+ExploreViewPagerFragment.setSlidingShowOrientation(SlidingShowOrientationEnum showOrientationEnum);
+
+/**
+* 设置滑块独立控件内边距。
+* <p>
+* 设置的值不能为负数,设置值单位为px.
+* <p>
+*
+* @param left   左边内边距.默认值-1
+* @param top    顶部内边距.默认值-1
+* @param right  右边内边距.默认值-1
+* @param bottom 底部内边距.默认值-1
+* @return ExploreViewPagerFragment
+*/
+ExploreViewPagerFragment.setPadding(int left, int top, int right, int bottom);
+
+/**
 * 运行当前显示界面捆绑的fragment显示方法
 */
 ExploreViewPagerFragment.onShow();
 ```
-### 如有问题，请查看我的博客文档
+### 如有问题，请下载Demo查看或者查看我的博客文档
 [我的博客](http://www.jianshu.com/p/739759fa36fd) 

@@ -3,7 +3,6 @@ package com.liqi.slidenavigation;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
-
 import com.liqi.Logger;
 import com.liqi.fragment.BaseFragment;
 
@@ -16,16 +15,13 @@ import java.util.List;
  * @author Liqi
  */
 public class ExploreViewPagerFragment extends BaseViewPagerFragment {
-//    public final byte TYPE_ONE = 0x0;
-//    public final byte TYPE_TWO = 0x1;
-//    public final byte TYPE_THREE = 0x2;
     // 存储fragment对象的集合
     private ArrayList<ThisViewpagerFragmentObj> fragmentObjList;
 
     private ExploreViewPagerFragment() {
-        if (null == fragmentObjList)
+        if (null == fragmentObjList) {
             fragmentObjList = new ArrayList<>();
-
+        }
     }
 
     public static ExploreViewPagerFragment newInstance() {
@@ -105,7 +101,6 @@ public class ExploreViewPagerFragment extends BaseViewPagerFragment {
      * 设置选中的title字体是否变粗
      *
      * @param textTitleSizeCoarsening true是变粗false为不变粗。默认为false
-     *
      * @return ExploreViewPagerFragment
      */
     public ExploreViewPagerFragment setTextTitleSizeCoarsening(boolean textTitleSizeCoarsening) {
@@ -126,7 +121,7 @@ public class ExploreViewPagerFragment extends BaseViewPagerFragment {
                 adapter.addTab(fragmentObj.titleName, (BaseFragment) Fragment.instantiate(getContext(), fragmentObj.clazz.getName(), bundle));
             }
         } else {
-            Logger.e("ExploreViewPagerFragment","ExploreViewPagerFragment对象中fragmentObjList展示集合没有赋值对象,请调用setFragmentObjList()赋值");
+            Logger.e("ExploreViewPagerFragment", "ExploreViewPagerFragment对象中fragmentObjList展示集合没有赋值对象,请调用setFragmentObjList()赋值");
         }
     }
 
@@ -134,7 +129,6 @@ public class ExploreViewPagerFragment extends BaseViewPagerFragment {
      * 设置标题字体尺寸
      *
      * @param textSize 字体尺寸
-     *
      * @return ExploreViewPagerFragment
      */
     public ExploreViewPagerFragment setTextTitleSize(int textSize) {
@@ -146,7 +140,6 @@ public class ExploreViewPagerFragment extends BaseViewPagerFragment {
      * 设置标题放大字体尺寸
      *
      * @param textZoomInSize 标题放大字体尺寸
-     *
      * @return ExploreViewPagerFragment
      */
     public ExploreViewPagerFragment setTextTitleZoomInSize(int textZoomInSize) {
@@ -156,11 +149,12 @@ public class ExploreViewPagerFragment extends BaseViewPagerFragment {
 
     /**
      * 单个添加要显示的fragment界面和fragment标题名字
-     * @param titleName fragment标题名字
+     *
+     * @param titleName     fragment标题名字
      * @param fragmentClass 要显示的fragment界面class
      * @return ExploreViewPagerFragment
      */
-    public ExploreViewPagerFragment addFragment(String titleName,Class<? extends BaseFragment> fragmentClass){
+    public ExploreViewPagerFragment addFragment(String titleName, Class<? extends BaseFragment> fragmentClass) {
         ThisViewpagerFragmentObj fragmentObj = new ThisViewpagerFragmentObj();
         fragmentObj.clazz = fragmentClass;
         fragmentObj.titleName = titleName;
@@ -169,28 +163,61 @@ public class ExploreViewPagerFragment extends BaseViewPagerFragment {
     }
 
     /**
+     * 设置滑动控件显示控件方位枚举。默认顶部
+     *
+     * @param showOrientationEnum 滑动控件显示控件方位枚举
+     * @return ExploreViewPagerFragment
+     */
+    public ExploreViewPagerFragment setSlidingShowOrientation(SlidingShowOrientationEnum showOrientationEnum) {
+        mShowOrientationEnum = showOrientationEnum;
+        return this;
+    }
+
+    /**
+     * 设置滑块独立控件内边距。
+     * <p>
+     * 设置的值不能为负数,设置值单位为px.
+     * <p>
+     *
+     * @param left   左边内边距.默认值-1
+     * @param top    顶部内边距.默认值-1
+     * @param right  右边内边距.默认值-1
+     * @param bottom 底部内边距.默认值-1
+     * @return ExploreViewPagerFragment
+     */
+    public ExploreViewPagerFragment setPadding(int left, int top, int right, int bottom) {
+        mPaddingLeft = left;
+        mPaddingTop = top;
+        mPaddingRight = right;
+        mPaddingBottom = bottom;
+        return this;
+    }
+
+    /**
      * 批量添加要显示的fragment界面和fragment标题名字
-     * @param titleName fragment标题名字数组
+     *
+     * @param titleName         fragment标题名字数组
      * @param fragmentClassList 要显示的fragment界面class集合
      * @return ExploreViewPagerFragment
      */
-    public ExploreViewPagerFragment addFragment(String[] titleName, List<Class<? extends BaseFragment>> fragmentClassList){
+    public ExploreViewPagerFragment addFragment(String[] titleName, List<Class<? extends BaseFragment>> fragmentClassList) {
         if (null != fragmentClassList && !fragmentClassList.isEmpty()) {
 
-           if (null!=titleName) {
-               for (int i = 0; i < fragmentClassList.size(); i++) {
-                   // 显示的fragment对象不能大于标题名字的数组
-                   if (i < titleName.length) {
-                       ThisViewpagerFragmentObj fragmentObj = new ThisViewpagerFragmentObj();
-                       fragmentObj.clazz = fragmentClassList.get(i);
-                       fragmentObj.titleName = titleName[i];
-                       fragmentObjList.add(fragmentObj);
-                   }
-               }
-           }
+            if (null != titleName) {
+                for (int i = 0; i < fragmentClassList.size(); i++) {
+                    // 显示的fragment对象不能大于标题名字的数组
+                    if (i < titleName.length) {
+                        ThisViewpagerFragmentObj fragmentObj = new ThisViewpagerFragmentObj();
+                        fragmentObj.clazz = fragmentClassList.get(i);
+                        fragmentObj.titleName = titleName[i];
+                        fragmentObjList.add(fragmentObj);
+                    }
+                }
+            }
         }
         return this;
     }
+
     /**
      * 运行当前显示界面捆绑的fragment显示方法
      */

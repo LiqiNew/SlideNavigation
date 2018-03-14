@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.liqi.demo.R;
 import com.liqi.fragment.BaseFragment;
 import com.liqi.slidenavigation.ExploreViewPagerFragment;
+import com.liqi.slidenavigation.SlidingShowOrientationEnum;
 
 import java.util.ArrayList;
 
@@ -52,17 +53,19 @@ public class TestSlideNavigationActivity extends AppCompatActivity {
                 .addFragment("界面1",TestSlideNavigationFragment.class)
                 .addFragment("界面2",TestSlideNavigationFragment.class)
                 .addFragment("界面3",TestSlideNavigationFragment.class)
-                .addFragment("界面4",TestSlideNavigationFragment.class)
-                .addFragment("界面5",TestSlideNavigationFragment.class)
-                .addFragment("界面6",TestSlideNavigationFragment.class)
-                .addFragment("界面7",TestSlideNavigationFragment.class)
-                .addFragment("界面8",TestSlideNavigationFragment.class)
-                .addFragment("界面9",TestSlideNavigationFragment.class)
-                .addFragment("界面10",TestSlideNavigationFragment.class)
+                //.addFragment("界面4",TestSlideNavigationFragment.class)
+                //.addFragment("界面5",TestSlideNavigationFragment.class)
+                //.addFragment("界面6",TestSlideNavigationFragment.class)
+               // .addFragment("界面7",TestSlideNavigationFragment.class)
+                //.addFragment("界面8",TestSlideNavigationFragment.class)
+                //.addFragment("界面9",TestSlideNavigationFragment.class)
+                //.addFragment("界面10",TestSlideNavigationFragment.class)
                 //批量添加
                 //.addFragment(titleNames, clazzList)
                 .setViewpagerCacheLimit(clazzList.size())
-                .setTextTitleSize(16)
+                .setTextTitleSize(18)
+                .setSlidingShowOrientation(SlidingShowOrientationEnum.BOTTOM)
+                .setPadding(0,30,0,30)
                 .setTextTitleSizeCoarsening(true)
                 .setSlidingTabStripImage(
                         R.drawable.store_title_image_mr,

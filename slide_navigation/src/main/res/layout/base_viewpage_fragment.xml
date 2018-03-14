@@ -5,15 +5,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <!-- 导航标题栏 -->
+    <!-- 顶部位置导航标题栏 -->
 
     <com.liqi.slidenavigation.PagerSlidingTabStrip
-        android:id="@+id/tabstrip"
+        android:id="@+id/tabstrip_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:allowWidthFull="true"/>
 
     <View
+        android:id="@+id/top_view"
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:background="@color/view_background" />
@@ -24,4 +25,16 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
+    <View
+        android:id="@+id/bottom_view"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/view_background" />
+
+    <!-- 底部位置导航标题栏 -->
+    <com.liqi.slidenavigation.PagerSlidingTabStrip
+        android:id="@+id/tabstrip_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:allowWidthFull="true"/>
 </LinearLayout>

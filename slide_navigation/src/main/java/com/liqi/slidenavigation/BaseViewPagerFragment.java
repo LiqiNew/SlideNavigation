@@ -37,9 +37,19 @@ public abstract class BaseViewPagerFragment extends BaseFragment implements View
     protected int mTextSize = 14;
     //默认放大字体尺寸
     protected int mTextZoomInSize = 16;
+    //左边内边距.默认值-1
+    protected int mPaddingLeft = -1,
+    //顶部内边距.默认值-1
+    mPaddingTop = -1,
+    //右边内边距.默认值-1
+    mPaddingRight = -1,
+    //底部内边距.默认值-1
+    mPaddingBottom = -1;
     protected boolean isTextTitleSizeCoarsening;
     //用户选择页面对象
     protected ViewPageInfo mViewPageInfo;
+    //滑动控件显示控件方位枚举。默认顶部
+    protected SlidingShowOrientationEnum mShowOrientationEnum = SlidingShowOrientationEnum.TOP;
 
     @Override
     public int setLiayoutId() {
@@ -50,7 +60,18 @@ public abstract class BaseViewPagerFragment extends BaseFragment implements View
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         mViewPager = (ViewPager) view.findViewById(R.id.pager);
-        mTabStrip = (PagerSlidingTabStrip) view.findViewById(R.id.tabstrip);
+        switch (mShowOrientationEnum) {
+            case TOP:
+                mTabStrip = (PagerSlidingTabStrip) view.findViewById(R.id.tabstrip_top);
+                view.findViewById(R.id.bottom_view).setVisibility(View.GONE);
+                view.findViewById(R.id.tabstrip_bottom).setVisibility(View.GONE);
+                break;
+            case BOTTOM:
+                mTabStrip = (PagerSlidingTabStrip) view.findViewById(R.id.tabstrip_bottom);
+                view.findViewById(R.id.top_view).setVisibility(View.GONE);
+                view.findViewById(R.id.tabstrip_top).setVisibility(View.GONE);
+                break;
+        }
         mTabStrip.setBackgroundResource(mBackgroundId);
         mTabStrip.setSlidingBlockDrawable(getResources().getDrawable(
                 mSlidingBlock));
@@ -64,6 +85,10 @@ public abstract class BaseViewPagerFragment extends BaseFragment implements View
         mTabsAdapter.setPageSelectedListener(this);
         mTabsAdapter.mTextColroSelect = mTextColroSelect;
         mTabsAdapter.mTextSize = mTextSize;
+        mTabsAdapter.mPaddingLeft=mPaddingLeft;
+        mTabsAdapter.mPaddingTop=mPaddingTop;
+        mTabsAdapter.mPaddingRight=mPaddingRight;
+        mTabsAdapter.mPaddingBottom=mPaddingBottom;
         mViewPager.setOffscreenPageLimit(mCacheLimit);// 设置ViewPare一次性加载几个页面。
         // 回调方法给子类调用
         onSetupTabAdapter(mTabsAdapter);
